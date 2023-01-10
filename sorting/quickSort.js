@@ -39,11 +39,7 @@ const swap = (arr, i, j) => {
   arr[j] = temp;
 };
 
-// var sortArray = function (nums) {
-//   return quickSort(nums, 0, nums.length - 1);
-// };
-
 const items = [5, 3, 7, 6, 2, 9];
 const nums = [0, -9, 77, 32, -80, 5, 45, 11, 7];
 console.log(quickSort(items)); // [2, 3, 5, 6, 7, 9]
-console.log(quickSort(nums)); // [2, 3, 5, 6, 7, 9]
+console.log(quickSort(nums));
