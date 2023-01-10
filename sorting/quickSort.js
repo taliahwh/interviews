@@ -44,6 +44,6 @@ const swap = (arr, i, j) => {
 // };
 
 const items = [5, 3, 7, 6, 2, 9];
-const nums2 = [0, -9, 77, 32, -80, 5, 45, 11, 7];
+const nums = [0, -9, 77, 32, -80, 5, 45, 11, 7];
 console.log(quickSort(items)); // [2, 3, 5, 6, 7, 9]
-console.log(quickSort(nums2)); // [2, 3, 5, 6, 7, 9]
+console.log(quickSort(nums)); // [2, 3, 5, 6, 7, 9]
