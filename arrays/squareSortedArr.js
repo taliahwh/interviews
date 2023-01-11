@@ -1,3 +1,5 @@
+// Time: O(n)
+// Space: O(n)
 const squareSortedArr = (nums) => {
   let start = 0;
   let end = nums.length - 1;
