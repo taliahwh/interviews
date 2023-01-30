@@ -32,13 +32,13 @@ const mergeIntervals = (intervals) => {
       // in the iteration and that there is content in prevArr.. push that into result
       // and update prevArr to be the current interval so that we can check for future
       // overlapping intervals
-      result.push([...prevArr]);
+      result.push(prevArr.slice());
       // console.log('updated result', result);
       prevArr[0] = curStart;
       prevArr[1] = curEnd;
     }
   }
-  result.push([...prevArr]);
+  result.push(prevArr.slice());
 
   return result;
 };
@@ -66,7 +66,7 @@ const intervals3 = [
 const intervals4 = [
   [1, 4],
   [0, 0],
-];
+]; // -> [0,0], [1,4]
 
 console.log(mergeIntervals(intervals1));
 console.log(mergeIntervals(intervals2));
