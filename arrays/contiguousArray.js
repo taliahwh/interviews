@@ -17,6 +17,8 @@
  *
  */
 
+// Time: O(n)
+// Space: O(n)
 const findMaxLength = (nums) => {
   const prevSum = {}; // { sum : index }
   let sum = 0;
