@@ -18,7 +18,7 @@
  */
 
 // Time: O(n)
-// Space: O(n)
+// Space: O(n) -> hashmap
 const findMaxLength = (nums) => {
   const prevSum = {}; // { sum : index }
   let sum = 0;
