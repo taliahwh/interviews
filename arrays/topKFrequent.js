@@ -7,27 +7,30 @@
  * 4. Return output
  */
 const topKFrequent = (nums, k) => {
-  const output = [];
   const map = {};
 
   for (let num of nums) {
     if (!(num in map)) map[num] = 0;
     map[num]++;
   }
-  console.log(map);
 
-  for (let i = 1; i <= k; i++) {
-    let max = 0;
-    for (let num in map) {
-      max = Math.max(max, map[num]);
-    }
-    const num = Object.keys(map).find((key) => map[key] === max);
-    output.push(Number(num));
-    map[num] = 0;
-  }
-  console.log(map);
+  // BRUTE FORCE
+  // for (let i = 1; i <= k; i++) {
+  //   let max = 0;
+  //   for (let num in map) {
+  //     max = Math.max(max, map[num]);
+  //   }
+  //   const num = Object.keys(map).find((key) => map[key] === max);
+  //   output.push(Number(num));
+  //   map[num] = 0;
+  // }
 
-  return output;
+  const sorted = Object.entries(map)
+    .sort((a, b) => b[1] - a[1])
+    .map((entry) => Number(entry[0]))
+    .slice(0, k);
+
+  return sorted;
 };
 
 // console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2)); // -> [1,2]
