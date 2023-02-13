@@ -33,5 +33,5 @@ const subarraySum = (nums, k) => {
 };
 
 console.log(subarraySum([1, 1, 1], 2)); // -> 2
-console.log(subarraySum([1, 2, 3], 3)); // -> 2
+// console.log(subarraySum([1, 2, 3], 3)); // -> 2
 console.log(subarraySum([3, 4, 7, 2, -3, 1, 4, 2, 1], 7)); // -> 6
