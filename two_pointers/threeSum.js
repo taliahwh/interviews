@@ -4,45 +4,45 @@
  */
 
 // [-1,-1,0,1]
-const threeSum = (nums) => {
+const threeSum = (nums, target = 0) => {
   const output = [];
 
+  // skip iteration if not enough values for solution
+  if (nums.length < 3) return output;
+
+  // sort the array
   nums.sort((a, b) => a - b);
 
-  for (let i = 0; i < nums.length; i++) {
+  // iterate up until the third-to-last value to avoid duplicates
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] > target) break;
     if (i > 0 && nums[i] === nums[i - 1]) continue;
-    const target = nums[i] * -1;
-    const subResult = twoSum(nums, i + 1, target);
-    output.push(...subResult);
-  }
 
-  return output;
-};
+    // for each iteration of i, perform a twoSum function with two pointers
+    let low = i + 1;
+    let high = nums.length - 1;
+    while (low < high) {
+      const sum = nums[i] + nums[low] + nums[high];
 
-const twoSum = (nums, startIndex, target) => {
-  const subResult = [];
-  let low = startIndex;
-  let high = nums.length - 1;
+      if (sum < target) {
+        low++;
+      } else if (sum > target) {
+        high--;
+      } else {
+        // sum === target
+        output.push([nums[i], nums[low], nums[high]]);
 
-  while (low < high) {
-    const sum = nums[low] + nums[high];
+        // skip duplicate values of low and high
+        while (nums[low] === nums[low + 1]) low++;
+        while (nums[high] === nums[high - 1]) high--;
 
-    if (sum < target) {
-      low++;
-    } else if (sum > target) {
-      high--;
-    } else {
-      // sum === target
-      subResult.push([target * -1, nums[low], nums[high]]);
-
-      while (nums[low] === nums[low + 1]) low++;
-      while (nums[high] === nums[high - 1]) high--;
-
-      low++;
-      high--;
+        // move pointers inward
+        low++;
+        high--;
+      }
     }
   }
-  return subResult;
+  return output;
 };
 
 const test1 = threeSum([-1, 0, 1, 2, -1, -4]);
