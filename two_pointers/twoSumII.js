@@ -27,7 +27,6 @@ const twoSum = (numbers, target) => {
     } else if (sum > target) {
       high--;
     } else {
-      // sum === target -> return [low + 1, high + 1]
       return [low + 1, high + 1];
     }
   }
