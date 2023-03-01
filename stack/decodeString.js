@@ -1,3 +1,4 @@
+// O(n) - time, space
 const decodeString = (s) => {
   const stack = []; // [word : count]
   const numbers = '0123456789';
