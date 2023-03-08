@@ -5,6 +5,14 @@ class ListNode {
   }
 }
 
+/**
+ * Using a pointer to represent the even and odd indicies,
+ * separate into two lists based on whether the index is even/odd
+ * After the iteration, append the even list to the odd
+ *
+ * Base case: empty list
+ */
+
 const oddEvenList = (head) => {
   if (!head) return head;
 
